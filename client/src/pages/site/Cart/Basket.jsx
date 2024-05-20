@@ -11,7 +11,6 @@ const Basket = () => {
           <td>Image</td>
           <td>Name</td>
           <td>Price</td>
-          <td>DiscountPrice</td>
           <td>Counter</td>
           <td></td>
         </tr>
@@ -24,7 +23,6 @@ const Basket = () => {
                   <td className='image'><img src={item.image} alt="" /></td>
                   <td><h3>{item.name}</h3></td>
                   <td><span>${item.price}.00</span></td>
-                  <td><span>${item.discountPrice}.00</span></td>
                   <td>
                     <div>
                       <button onClick={() => modifyCount(false, item)}>-</button>

@@ -13,12 +13,12 @@ function App() {
   localStorage.setItem("Basket", JSON.stringify(basketArr))
   let subTotal = 0
 
-  basketArr.map((e) => subTotal += e.count * e.discountPrice)
+  basketArr.map((e) => subTotal += e.count * e.price)
   const addToBasket = (item) => {
     const existedProduct = basketArr.find((x) => x._id === item._id)
     if(existedProduct) {
          existedProduct.count++
-         existedProduct.total = existedProduct.discountPrice * existedProduct.count
+         existedProduct.total = parse(existedProduct.price * existedProduct.count)
          setBasketArr([...basketArr])
          localStorage.setItem("Basket", JSON.stringify(basketArr))
          Swal.fire({
@@ -28,8 +28,7 @@ function App() {
          });
          return
     }
-
-    const total = item.discountPrice
+    const total = item.price
     setBasketArr([...basketArr, {...item, count: 1, total}])
     Swal.fire({
          title: "Success",
@@ -44,7 +43,7 @@ const modifyCount = (increment, item) => {
     if(existedProduct) {
          if(increment) {
               existedProduct.count++
-              existedProduct.total = existedProduct.discountPrice * existedProduct.count
+              existedProduct.total = existedProduct.price * existedProduct.count
               setBasketArr([...basketArr])
               toast.success('Count Increase')
 
@@ -52,7 +51,7 @@ const modifyCount = (increment, item) => {
               removeFromBasket(item._id)
          } else {
               existedProduct.count--
-              existedProduct.total = existedProduct.discountPrice * existedProduct.count
+              existedProduct.total = existedProduct.price * existedProduct.count
               setBasketArr([...basketArr])
               toast.success('Count Decrease')
          }

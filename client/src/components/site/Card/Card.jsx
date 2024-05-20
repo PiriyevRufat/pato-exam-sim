@@ -4,32 +4,43 @@ import CardItem from '../CardItem/CardItem'
 
 const Card = () => {
     const { data }=useContext(MainContext)
-    const [inpVal, setInpVal] = useState("")
-const [sortBy, setSortBy] = useState(null)
+    const [inpvalue, setInpValue] = useState("")
+    const [sortedData, setSortedData] = useState("default")
+
+     const filteredData = data.filter((item) => item.name.toLowerCase().includes(inpvalue))
+     filteredData.sort((a, b) => {
+          const nameA = a.name.toLowerCase()
+          const nameB = b.name.toLowerCase()
+          const priceA = a.price
+          const priceB = b.price
+
+          if(sortedData === "asc") {
+               return nameA.localeCompare(nameB)
+          } else if(sortedData === "desc") {
+               return nameB.localeCompare(nameA)
+          } else if(sortedData === "High To Low") {
+               return priceB - priceA
+          } else if(sortedData === 'Low To High') {
+               return priceA - priceB
+          } else {
+               return 0
+          }
+     })
 
     return (
         
         <div className='container d-flex mt-5'>
-        <input value={inpVal}  onChange={(e)=>{
-            setInpVal(e.target.value)
-          }} type="text" placeholder="Search " />
-          <button onClick={()=>setSortBy({field:"title",asc:true})} className="btn btn-primary mx-3  ">A-Z</button>
-          <button onClick={()=>setSortBy({field:"title",asc:false})} className="btn btn-primary mx-3 ">Z-A</button>
-          <button onClick={()=>setSortBy({field:"price",asc:false})} className="btn btn-primary v">Low To High</button>
-          <button onClick={()=>setSortBy({field:"price",asc:true})} className="btn btn-primary mx-3 ">High To Low</button>
+          <input type="text" placeholder='Search' onChange={(e) => setInpValue(e.target.value)}/>
+          <select onChange={(e) => setSortedData(e.target.value)}>
+               <option value="default">Default</option>
+               <option value="asc">A-Z</option>
+               <option value="desc">Z-A</option>
+               <option value="High To Low">High To Low</option>
+               <option value="Low To High">Low To High</option>
+          </select>
         {
-            data.filter(x=>x.title.toLowerCase().includes(inpVal.toLowerCase()))
-            .sort((a,b)=>{
-              if(!sortBy){
-                  return 0
-              }else if(sortBy.asc==true){
-                  return (a[sortBy.field] > b[sortBy.field]) ? 1 : ((b[sortBy.field] > a[sortBy.field]) ? -1 : 0)
-              }
-              else if(sortBy.asc==false){
-                return (a[sortBy.field] < b[sortBy.field]) ? 1 : ((b[sortBy.field] < a[sortBy.field]) ? -1 : 0)
-
-            }
-}).map((item,index)=>(
+            filteredData
+.map((item,index)=>(
                     <CardItem key={index} item={item}/>
             ))
         }
