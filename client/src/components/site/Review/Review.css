@@ -1,0 +1,27 @@
+.review-heading{
+    text-align: center;
+}
+.review-heading span{
+    font-family: Courgette;
+    font-size: 30px;
+    line-height: 1.2;
+    color: #d61c22;
+}
+.review-heading h3{
+    font-family: Poppins;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 1.2;
+    color: #222222;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    margin-bottom: 35px;
+}
+.review-card-image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.review-card-image img{
+    border-radius: 50%;
+}

@@ -1,0 +1,27 @@
+.admin-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:100px;
+    padding-top: 25px;
+    background-color: blue
+    ;
+}
+.adminicons-ul{
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+.adminicons-ul li a{
+    text-decoration: none;
+    color: black;
+}
+.adminpages-ul li a{
+    text-decoration: none;
+    color: black;
+}
+.adminpages-ul{
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}

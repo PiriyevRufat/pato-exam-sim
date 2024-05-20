@@ -1,0 +1,30 @@
+.home-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:100px;
+    padding-top: 25px;
+}
+.icons-ul{
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+.icons-ul li a{
+    text-decoration: none;
+    color: white;
+}
+.pages-ul li a{
+    text-decoration: none;
+    color: white;
+}
+.pages-ul{
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+.home-header{
+    position: fixed;
+    z-index: 101;
+    gap: 200px;
+}

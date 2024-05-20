@@ -1,0 +1,51 @@
+.welcomesect{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 150px;
+}
+.cardwelcome{
+    text-align: center;
+}
+.cardwelcome span{
+    font-family: Courgette;
+    font-size: 30px;
+    line-height: 1.2;
+    color: #d61c22;
+}
+.cardwelcome h3{
+    font-family: Poppins;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 1.2;
+    color: #222222;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    margin-bottom: 35px;
+}
+.cardwelcome p{
+    font-family: Montserrat;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #666666;
+    margin-bottom: 22px;
+}
+.cardwelcome a{
+    font-family: Montserrat;
+    font-weight: 400;
+    font-size: 12px;
+    color: #222222;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+.imagecard-welcome{
+    overflow: hidden;
+    border-radius: 10px;
+    margin-right: 200px;
+}
+.imagecard-welcome img{
+    width: 100%;
+}
